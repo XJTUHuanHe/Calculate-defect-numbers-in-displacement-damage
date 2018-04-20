@@ -1,3 +1,3 @@
-# "Timestep" "Ga_vacancy_count" "N_vacancy_count" "vacancy_count"
+# "Timestep" "A_vacancy_count" "B_vacancy_count" "vacancy_count"
 50000 1 3 4 
 50001 1 3 4 
