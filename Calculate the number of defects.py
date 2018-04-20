@@ -42,8 +42,8 @@ def modify(frame, input, output):
     selection8 = (site_type == 2) & (occupancies[:,0] == 1) & (occupancies[:,1]==0)   #Antisite A
     
     # Additionally output the total number of antisites as a global attribute:(As follows, it only shows some examples)
-    output.attributes['Ga_vacancy_count'] = np.count_nonzero(selection1)
-    output.attributes['N_vacancy_count'] = np.count_nonzero(selection2)
+    output.attributes['A_vacancy_count'] = np.count_nonzero(selection1)
+    output.attributes['B_vacancy_count'] = np.count_nonzero(selection2)
     output.attributes['vacancy_count'] = np.count_nonzero(selection1+selection2)
     
 # Insert Python modifier into the data pipeline.
@@ -52,5 +52,5 @@ node.modifiers.append(PythonScriptModifier(function = modify))
 # Let OVITO do the computation and export the number of identified 
 # antisites as a function of simulation time to a text file:
 export_file(node, "defects.txt", "txt", 
-    columns = ['Timestep', 'Ga_vacancy_count','N_vacancy_count','vacancy_count'],
+    columns = ['Timestep', 'A_vacancy_count','B_vacancy_count','vacancy_count'],
     multiple_frames = True)
